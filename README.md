@@ -441,3 +441,7 @@ Do not commit:
 - Add authentication/RBAC before exposing the dashboard on a network.
 - Treat evidence paths, hashes, usernames, hostnames, and incident records as sensitive data.
 - Use PostgreSQL for multi-host or long-term deployments.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
