@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}KRZX-MYTHOZ Incidents{% endblock %}
+{% block content %}
+<section class="panel">
+  <h1>High Risk Events & Evidence</h1>
+  <div class="table-responsive">
+    <table class="table table-dark table-hover align-middle">
+      <thead><tr><th>Risk</th><th>Score</th><th>Title</th><th>Device</th><th>Status</th><th>Created</th><th>Report</th></tr></thead>
+      <tbody>
+        {% for incident in incidents %}
+        <tr>
+          <td><span class="badge risk-{{ incident.risk_level|lower }}">{{ incident.risk_level }}</span></td>
+          <td>{{ incident.threat_score }}</td>
+          <td>{{ incident.title }}</td>
+          <td>{{ incident.device.device_name if incident.device else "Unmapped" }}</td>
+          <td>{{ incident.status }}</td>
+          <td>{{ incident.created_at|localtime("%Y-%m-%d %H:%M") }}</td>
+          <td><a class="btn btn-sm btn-outline-info" href="{{ url_for('usbshadow.incident_report', incident_id=incident.id) }}">Open</a></td>
+        </tr>
+        {% else %}
+        <tr><td colspan="7" class="text-secondary">No incidents generated yet.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}

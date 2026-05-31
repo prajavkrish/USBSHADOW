@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="820" viewBox="0 0 1400 820" role="img" aria-label="KRZX-MYTHOZ cyber USB forensics dashboard preview">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#05090d"/>
+      <stop offset="0.55" stop-color="#071016"/>
+      <stop offset="1" stop-color="#05090d"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#10202a"/>
+      <stop offset="1" stop-color="#071016"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <pattern id="grid" width="38" height="38" patternUnits="userSpaceOnUse">
+      <path d="M 38 0 L 0 0 0 38" fill="none" stroke="#00d8ff" stroke-opacity=".08" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1400" height="820" fill="url(#bg)"/>
+  <rect width="1400" height="820" fill="url(#grid)"/>
+  <circle cx="230" cy="70" r="220" fill="#00d8ff" opacity=".10"/>
+  <circle cx="1190" cy="120" r="180" fill="#00ff9c" opacity=".07"/>
+  <rect x="22" y="20" width="1356" height="58" rx="8" fill="#04090d" stroke="#1e3a48"/>
+  <rect x="42" y="34" width="34" height="34" rx="7" fill="#071016" stroke="#00d8ff"/>
+  <text x="51" y="56" fill="#00d8ff" font-family="monospace" font-size="14" font-weight="700">KX</text>
+  <text x="88" y="57" fill="#eaf7ff" font-family="monospace" font-size="22" font-weight="800" letter-spacing="2">KRZX-MYTHOZ</text>
+  <text x="300" y="56" fill="#7e95a3" font-family="monospace" font-size="15">Overview</text>
+  <text x="395" y="56" fill="#7e95a3" font-family="monospace" font-size="15">Devices</text>
+  <text x="480" y="56" fill="#7e95a3" font-family="monospace" font-size="15">Events</text>
+  <text x="555" y="56" fill="#7e95a3" font-family="monospace" font-size="15">Incidents</text>
+  <text x="655" y="56" fill="#7e95a3" font-family="monospace" font-size="15">Analytics</text>
+  <text x="1070" y="56" fill="#00ff9c" font-family="monospace" font-size="14">USB Shadow Defense Grid</text>
+
+  <rect x="40" y="110" width="1320" height="132" rx="8" fill="#071016" stroke="#00d8ff" stroke-opacity=".38"/>
+  <text x="68" y="148" fill="#00d8ff" font-family="monospace" font-size="14" letter-spacing="2">CYBER OPERATIONS CONSOLE</text>
+  <text x="68" y="190" fill="#eaf7ff" font-family="monospace" font-size="33" font-weight="800">KRZX-MYTHOZ USB Defense Grid</text>
+  <text x="68" y="218" fill="#7e95a3" font-family="monospace" font-size="16">Monitor removable media, investigate file activity, and triage USB intrusion signals.</text>
+  <rect x="982" y="130" width="340" height="28" rx="5" fill="#04090d" stroke="#1e3a48"/>
+  <text x="998" y="150" fill="#d8f7ff" font-family="monospace" font-size="13">Dashboard  python usbshadow.py dashboard</text>
+  <rect x="982" y="166" width="340" height="28" rx="5" fill="#04090d" stroke="#1e3a48"/>
+  <text x="998" y="186" fill="#d8f7ff" font-family="monospace" font-size="13">Agent      python usbshadow.py agent</text>
+  <rect x="982" y="202" width="340" height="28" rx="5" fill="#04090d" stroke="#1e3a48"/>
+  <text x="998" y="222" fill="#d8f7ff" font-family="monospace" font-size="13">Open       usb</text>
+
+  <g font-family="monospace">
+    <rect x="40" y="270" width="248" height="86" rx="8" fill="url(#panel)" stroke="#1e3a48"/>
+    <text x="64" y="306" fill="#7e95a3" font-size="14">Total Devices</text>
+    <text x="64" y="340" fill="#eaf7ff" font-size="36" font-weight="800">12</text>
+    <rect x="308" y="270" width="248" height="86" rx="8" fill="url(#panel)" stroke="#1e3a48"/>
+    <text x="332" y="306" fill="#7e95a3" font-size="14">Active Devices</text>
+    <text x="332" y="340" fill="#eaf7ff" font-size="36" font-weight="800">3</text>
+    <rect x="576" y="270" width="248" height="86" rx="8" fill="url(#panel)" stroke="#1e3a48"/>
+    <text x="600" y="306" fill="#7e95a3" font-size="14">Events Captured</text>
+    <text x="600" y="340" fill="#eaf7ff" font-size="36" font-weight="800">248</text>
+    <rect x="844" y="270" width="248" height="86" rx="8" fill="url(#panel)" stroke="#1e3a48"/>
+    <text x="868" y="306" fill="#7e95a3" font-size="14">Evidence Items</text>
+    <text x="868" y="340" fill="#eaf7ff" font-size="36" font-weight="800">76</text>
+    <rect x="1112" y="270" width="248" height="86" rx="8" fill="url(#panel)" stroke="#1e3a48"/>
+    <text x="1136" y="306" fill="#7e95a3" font-size="14">High Risk</text>
+    <text x="1136" y="340" fill="#ff3d71" font-size="36" font-weight="800" filter="url(#glow)">4</text>
+  </g>
+
+  <rect x="40" y="384" width="386" height="296" rx="8" fill="url(#panel)" stroke="#1e3a48"/>
+  <text x="64" y="420" fill="#eaf7ff" font-family="monospace" font-size="18">Threat Distribution</text>
+  <circle cx="233" cy="540" r="92" fill="none" stroke="#00ff9c" stroke-width="42"/>
+  <path d="M233 448 A92 92 0 0 1 319 510" fill="none" stroke="#ffd166" stroke-width="42"/>
+  <path d="M319 510 A92 92 0 0 1 298 605" fill="none" stroke="#ff3d71" stroke-width="42"/>
+  <circle cx="233" cy="540" r="50" fill="#071016"/>
+  <text x="201" y="546" fill="#eaf7ff" font-family="monospace" font-size="18">RISK</text>
+
+  <rect x="454" y="384" width="426" height="296" rx="8" fill="url(#panel)" stroke="#1e3a48"/>
+  <text x="478" y="420" fill="#eaf7ff" font-family="monospace" font-size="18">Priority Queue</text>
+  <rect x="478" y="444" width="378" height="55" rx="7" fill="#071016" stroke="#ff3d71" stroke-opacity=".6"/>
+  <text x="498" y="478" fill="#ff3d71" font-family="monospace" font-size="22" font-weight="800">92</text>
+  <text x="550" y="468" fill="#eaf7ff" font-family="monospace" font-size="15">Unknown USB with sensitive files</text>
+  <text x="550" y="488" fill="#7e95a3" font-family="monospace" font-size="13">workstation-07 · High</text>
+  <rect x="478" y="514" width="378" height="55" rx="7" fill="#071016" stroke="#ffd166" stroke-opacity=".55"/>
+  <text x="498" y="548" fill="#ffd166" font-family="monospace" font-size="22" font-weight="800">55</text>
+  <text x="550" y="538" fill="#eaf7ff" font-family="monospace" font-size="15">Large transfer detected</text>
+  <text x="550" y="558" fill="#7e95a3" font-family="monospace" font-size="13">lab-host · Medium</text>
+
+  <rect x="908" y="384" width="452" height="296" rx="8" fill="url(#panel)" stroke="#1e3a48"/>
+  <text x="932" y="420" fill="#eaf7ff" font-family="monospace" font-size="18">USB Timeline</text>
+  <text x="932" y="460" fill="#00d8ff" font-family="monospace" font-size="13">TIME</text>
+  <text x="1034" y="460" fill="#00d8ff" font-family="monospace" font-size="13">EVENT</text>
+  <text x="1140" y="460" fill="#00d8ff" font-family="monospace" font-size="13">DEVICE</text>
+  <line x1="932" y1="475" x2="1326" y2="475" stroke="#1e3a48"/>
+  <text x="932" y="506" fill="#eaf7ff" font-family="monospace" font-size="14">18:41:58</text>
+  <text x="1034" y="506" fill="#00ff9c" font-family="monospace" font-size="14">inserted</text>
+  <text x="1140" y="506" fill="#eaf7ff" font-family="monospace" font-size="14">ProductCode</text>
+  <text x="932" y="544" fill="#eaf7ff" font-family="monospace" font-size="14">18:43:20</text>
+  <text x="1034" y="544" fill="#ffd166" font-family="monospace" font-size="14">created</text>
+  <text x="1140" y="544" fill="#eaf7ff" font-family="monospace" font-size="14">report.pdf</text>
+  <text x="932" y="582" fill="#eaf7ff" font-family="monospace" font-size="14">18:44:12</text>
+  <text x="1034" y="582" fill="#ff3d71" font-family="monospace" font-size="14">removed</text>
+  <text x="1140" y="582" fill="#eaf7ff" font-family="monospace" font-size="14">/dev/sdb</text>
+</svg>

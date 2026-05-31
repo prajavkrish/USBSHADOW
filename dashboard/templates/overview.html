@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% block title %}KRZX-MYTHOZ Overview{% endblock %}
+{% block content %}
+<section class="command-band mb-4">
+  <div>
+    <p class="eyebrow">Cyber Operations Console</p>
+    <h1>KRZX-MYTHOZ USB Defense Grid</h1>
+    <p class="text-secondary mb-0">Monitor removable media, investigate file activity, and triage USB intrusion signals.</p>
+  </div>
+  <div class="command-grid">
+    <code><span>Dashboard</span>python usbshadow.py dashboard</code>
+    <code><span>Agent</span>python usbshadow.py agent</code>
+    <code><span>File Watch</span>python usbshadow.py file-watch /media/$USER/USB</code>
+  </div>
+</section>
+
+<div class="metric-strip mb-4">
+  <div class="metric"><span>Total Devices</span><strong>{{ total_devices }}</strong></div>
+  <div class="metric"><span>Active Devices</span><strong>{{ active_devices }}</strong></div>
+  <div class="metric"><span>Events Captured</span><strong>{{ event_count }}</strong></div>
+  <div class="metric"><span>Evidence Items</span><strong>{{ evidence_count }}</strong></div>
+  <div class="metric danger"><span>High Risk</span><strong>{{ high_risk }}</strong></div>
+</div>
+
+<div class="ops-grid">
+  <div class="panel risk-panel">
+    <div class="panel-title">
+      <h1>Threat Distribution</h1>
+      <span>{{ incidents }} incidents</span>
+    </div>
+    <div class="chart-wrap">
+      <canvas id="threatChart"></canvas>
+    </div>
+  </div>
+
+  <div class="panel priority-panel">
+    <div class="panel-title">
+      <h1>Priority Queue</h1>
+      <a href="{{ url_for('usbshadow.incidents_page') }}">View all</a>
+    </div>
+    <div class="list-stack">
+      {% for incident in recent_incidents %}
+      <a class="incident-row" href="{{ url_for('usbshadow.incident_report', incident_id=incident.id) }}">
+        <span class="score-pill risk-{{ incident.risk_level|lower }}">{{ incident.threat_score }}</span>
+        <div>
+          <strong>{{ incident.title }}</strong>
+          <small>{{ incident.device.device_name if incident.device else "Unmapped device" }} · {{ incident.risk_level }}</small>
+        </div>
+      </a>
+      {% else %}
+      <p class="text-secondary mb-0">No priority incidents yet.</p>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="panel active-panel">
+    <div class="panel-title">
+      <h1>Active USB Devices</h1>
+      <a href="{{ url_for('usbshadow.devices_page') }}">Inventory</a>
+    </div>
+    <div class="list-stack">
+      {% for device in active_device_rows %}
+      <div class="device-row">
+        <span class="status-dot on"></span>
+        <div>
+          <strong>{{ device.device_name }}</strong>
+          <small>{{ device.hostname or "unknown host" }} · {{ device.mount_point or "no mount point" }}</small>
+        </div>
+        <span class="chip">{{ device.platform or "unknown" }}</span>
+      </div>
+      {% else %}
+      <p class="text-secondary mb-0">No active USB devices.</p>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="panel timeline-panel">
+    <div class="panel-title">
+      <h1>USB Timeline</h1>
+      <a href="{{ url_for('usbshadow.events_page') }}">Open logs</a>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-dark table-hover align-middle timeline-table">
+        <thead><tr><th>Time</th><th>Event</th><th>Device</th><th>Evidence Path</th></tr></thead>
+        <tbody>
+          {% for event in recent_events %}
+          <tr>
+            <td class="text-nowrap">{{ event.timestamp|localtime("%H:%M:%S") }}</td>
+            <td><span class="badge text-bg-secondary">{{ event.event_type }}</span></td>
+            <td>{{ event.device.device_name if event.device else "Unmapped" }}</td>
+            <td class="text-truncate path-cell">{{ event.path or event.filename or "-" }}</td>
+          </tr>
+          {% else %}
+          <tr><td colspan="4" class="text-secondary">No USB activity recorded yet.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="panel playbook-panel">
+    <div class="panel-title">
+      <h1>Analyst Playbook</h1>
+      <span>Next steps</span>
+    </div>
+    <div class="playbook">
+      <div><strong>1</strong><span>Confirm device owner and hostname.</span></div>
+      <div><strong>2</strong><span>Review file hashes and sensitive extensions.</span></div>
+      <div><strong>3</strong><span>Escalate high-risk or unknown USB activity.</span></div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+{% block scripts %}
+<script>
+window.usbshadowThreatSummary = {{ threat_summary|tojson }};
+</script>
+<script src="{{ url_for('static', filename='js/overview.js') }}"></script>
+{% endblock %}

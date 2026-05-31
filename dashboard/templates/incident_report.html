@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}KRZX-MYTHOZ Incident Report{% endblock %}
+{% block content %}
+<section class="panel">
+  <div class="d-flex justify-content-between align-items-start gap-3">
+    <div>
+      <h1>Incident Report #{{ incident.id }}</h1>
+      <p class="text-secondary mb-0">{{ incident.description }}</p>
+    </div>
+    <span class="badge risk-{{ incident.risk_level|lower }}">{{ incident.risk_level }} / {{ incident.threat_score }}</span>
+  </div>
+  <hr>
+  <div class="row g-3">
+    <div class="col-md-6">
+      <h2>Device Metadata</h2>
+      <dl class="row">
+        <dt class="col-sm-4">Name</dt><dd class="col-sm-8">{{ incident.device.device_name if incident.device else "Unmapped" }}</dd>
+        <dt class="col-sm-4">Vendor</dt><dd class="col-sm-8">{{ incident.device.vendor if incident.device else "-" }}</dd>
+        <dt class="col-sm-4">Serial</dt><dd class="col-sm-8 mono">{{ incident.device.serial_number if incident.device else "-" }}</dd>
+        <dt class="col-sm-4">VID:PID</dt><dd class="col-sm-8">{{ incident.device.vid if incident.device else "?" }}:{{ incident.device.pid if incident.device else "?" }}</dd>
+      </dl>
+    </div>
+    <div class="col-md-6">
+      <h2>Scoring Factors</h2>
+      <ul class="list-group list-group-flush">
+        {% for factor in incident.factors or [] %}
+        <li class="list-group-item bg-transparent text-light d-flex justify-content-between"><span>{{ factor.name }}</span><strong>+{{ factor.score }}</strong></li>
+        {% else %}
+        <li class="list-group-item bg-transparent text-secondary">No factors captured.</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <h2 class="mt-4">Evidence Links</h2>
+  <div class="table-responsive">
+    <table class="table table-dark align-middle">
+      <thead><tr><th>Type</th><th>Filename</th><th>Path</th><th>SHA256</th><th>Collected</th></tr></thead>
+      <tbody>
+        {% for item in evidence %}
+        <tr><td>{{ item.evidence_type }}</td><td>{{ item.filename or "-" }}</td><td>{{ item.path or "-" }}</td><td class="mono small">{{ item.sha256 or "-" }}</td><td>{{ item.collected_at|localtime("%Y-%m-%d %H:%M") }}</td></tr>
+        {% else %}
+        <tr><td colspan="5" class="text-secondary">No linked evidence for this incident.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}

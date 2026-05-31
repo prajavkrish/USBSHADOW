@@ -1,0 +1,15 @@
+.env
+.venv/
+__pycache__/
+*.py[cod]
+*.sqlite
+*.db
+logs/*.log
+evidence/*
+!evidence/.gitkeep
+screenshots/*
+!screenshots/.gitkeep
+!screenshots/dashboard-preview.svg
+.pytest_cache/
+.mypy_cache/
+.DS_Store

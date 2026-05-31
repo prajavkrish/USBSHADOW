@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KRZX-MYTHOZ USB Defense Grid Demo</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #05090d;
+        --panel: #0b131a;
+        --line: #1e3a48;
+        --text: #eaf7ff;
+        --muted: #7e95a3;
+        --cyan: #00d8ff;
+        --green: #00ff9c;
+        --red: #ff3d71;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background:
+          linear-gradient(rgba(0, 216, 255, .035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0, 216, 255, .035) 1px, transparent 1px),
+          radial-gradient(circle at 15% 0%, rgba(0, 216, 255, .16), transparent 32%),
+          radial-gradient(circle at 85% 10%, rgba(0, 255, 156, .1), transparent 28%),
+          var(--bg);
+        background-size: 38px 38px, 38px 38px, auto, auto, auto;
+        color: var(--text);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      }
+      main {
+        margin: 0 auto;
+        max-width: 1180px;
+        padding: 44px 20px 64px;
+      }
+      .nav {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 44px;
+      }
+      .brand {
+        align-items: center;
+        display: inline-flex;
+        gap: 12px;
+        font-weight: 800;
+        letter-spacing: .1em;
+      }
+      .mark {
+        align-items: center;
+        border: 1px solid rgba(0, 216, 255, .6);
+        border-radius: 8px;
+        color: var(--cyan);
+        display: inline-flex;
+        height: 38px;
+        justify-content: center;
+        width: 38px;
+      }
+      .pill {
+        border: 1px solid rgba(0, 255, 156, .32);
+        border-radius: 999px;
+        color: var(--green);
+        font-size: 12px;
+        padding: 8px 12px;
+      }
+      .hero {
+        display: grid;
+        gap: 32px;
+        grid-template-columns: .9fr 1.1fr;
+        align-items: center;
+      }
+      h1 {
+        font-size: clamp(34px, 6vw, 66px);
+        line-height: 1.02;
+        margin: 0 0 18px;
+      }
+      p {
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.7;
+        margin: 0;
+      }
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+      a {
+        color: var(--text);
+        text-decoration: none;
+      }
+      .button {
+        background: rgba(0, 216, 255, .12);
+        border: 1px solid rgba(0, 216, 255, .46);
+        border-radius: 8px;
+        padding: 12px 16px;
+      }
+      .button.secondary {
+        background: rgba(0, 255, 156, .08);
+        border-color: rgba(0, 255, 156, .34);
+      }
+      .preview {
+        background: rgba(5, 9, 13, .72);
+        border: 1px solid rgba(0, 216, 255, .22);
+        border-radius: 12px;
+        box-shadow: 0 18px 50px rgba(0, 0, 0, .4);
+        overflow: hidden;
+      }
+      .preview img {
+        display: block;
+        width: 100%;
+      }
+      .grid {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: 34px;
+      }
+      .card {
+        background: rgba(11, 19, 26, .86);
+        border: 1px solid rgba(0, 216, 255, .18);
+        border-radius: 10px;
+        padding: 18px;
+      }
+      .card strong {
+        color: var(--cyan);
+        display: block;
+        margin-bottom: 10px;
+      }
+      code {
+        color: var(--green);
+      }
+      @media (max-width: 900px) {
+        .hero, .grid { grid-template-columns: 1fr; }
+        .nav { align-items: flex-start; flex-direction: column; gap: 16px; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <nav class="nav">
+        <div class="brand"><span class="mark">KX</span><span>KRZX-MYTHOZ</span></div>
+        <span class="pill">Static preview for GitHub Pages</span>
+      </nav>
+      <section class="hero">
+        <div>
+          <h1>USB Defense Grid for endpoint forensics.</h1>
+          <p>KRZX-MYTHOZ monitors removable media, fingerprints USB devices, tracks file activity, stores evidence hashes, and scores suspicious activity in a cyber SOC dashboard.</p>
+          <div class="actions">
+            <a class="button" href="https://github.com/krzx-mythoz/USBSHADOW">GitHub Repository</a>
+            <a class="button secondary" href="https://github.com/krzx-mythoz/USBSHADOW#readme">Read Documentation</a>
+          </div>
+        </div>
+        <div class="preview">
+          <img src="dashboard-preview.svg" alt="KRZX-MYTHOZ dashboard preview">
+        </div>
+      </section>
+      <section class="grid">
+        <div class="card">
+          <strong>Install Once</strong>
+          <p>Run <code>python3 install.py</code>. Services start at login and keep dashboard plus USB agent alive.</p>
+        </div>
+        <div class="card">
+          <strong>Open With One Word</strong>
+          <p>Type <code>usb</code> to open the local dashboard at <code>127.0.0.1:5000</code>.</p>
+        </div>
+        <div class="card">
+          <strong>Host-Based Monitoring</strong>
+          <p>Linux uses pyudev, Windows uses WMI, and macOS uses diskutil volume detection.</p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

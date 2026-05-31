@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}KRZX-MYTHOZ Analytics{% endblock %}
+{% block content %}
+<div class="row g-4">
+  <div class="col-xl-4"><section class="panel"><h1>Threat Distribution</h1><canvas id="threats"></canvas></section></div>
+  <div class="col-xl-4"><section class="panel"><h1>Device Platforms</h1><canvas id="platforms"></canvas></section></div>
+  <div class="col-xl-4"><section class="panel"><h1>Event Types</h1><canvas id="events"></canvas></section></div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/analytics.js') }}"></script>
+{% endblock %}
