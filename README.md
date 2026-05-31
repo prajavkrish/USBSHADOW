@@ -11,7 +11,7 @@ usb
 
 ## Demo And Preview
 
-- Demo website: [https://krzx-mythoz.github.io/USBSHADOW/](https://krzx-mythoz.github.io/USBSHADOW/)
+- Demo website: [https://prajavkrish.github.io/USBSHADOW/](https://krzx-mythoz.github.io/USBSHADOW/)
 - Local dashboard: `http://127.0.0.1:5000`
 - Static demo source: [docs/index.html](docs/index.html)
 
