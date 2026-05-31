@@ -6,7 +6,18 @@
 |  :  |/  \ ||  O  ||_____|/  \ ||  |  ||  _  ||     ||     ||  `  '  |
 |     |\    ||     |       \    ||  |  ||  |  ||     ||     | \      / 
  \__,_| \___||_____|        \___||__|__||__|__||_____| \___/   \_/\_/  
-```                                                                       
+```
+![Python](https://img.shields.io/badge/Python-3.12+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-Backend-000000?style=for-the-badge&logo=flask&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-Default_DB-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Supported-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-Deployment-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-5-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)
+![Chart.js](https://img.shields.io/badge/Chart.js-Dashboard-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white)
+![Windows](https://img.shields.io/badge/Windows-WMI-0078D6?style=for-the-badge&logo=windows&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-pyudev-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+![macOS](https://img.shields.io/badge/macOS-diskutil-000000?style=for-the-badge&logo=apple&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
 Cross-platform USB forensics, monitoring, and incident scoring for Windows, Linux, and macOS.
 
@@ -22,6 +33,8 @@ usb
 - Demo website: [https://prajavkrish.github.io/USBSHADOW/](https://prajavkrish.github.io/USBSHADOW/)
 - Local dashboard: `http://127.0.0.1:5000`
 - Static demo source: [docs/index.html](docs/index.html)
+
+  [![Demo](https://img.shields.io/badge/Demo-GitHub_Pages-00C853?style=for-the-badge&logo=githubpages&logoColor=white)](https://prajavkrish.github.io/USBSHADOW/)
 
 > The demo website is a static preview for GitHub Pages. Real USB monitoring runs locally because the agent needs host OS access to USB events.
 
